@@ -1,0 +1,21 @@
+{
+  "deploy": {
+    "builder": "NIXPACKS",
+    "healthcheck": "/",
+    "startCommand": "gunicorn main:app -b 0.0.0.0:$PORT"
+  },
+  "variables": {
+    "NOTIFICATION_SERVICE": {
+      "description": "Notification service to use: wechat, dingtalk, or webhook",
+      "default": "webhook"
+    },
+    "SECURITY_NOTIFICATION_SERVICE": {
+      "description": "Security notification service: app, wechat, dingtalk, or webhook",
+      "default": "app"
+    },
+    "PORT": {
+      "description": "Port to run the application on",
+      "default": "8000"
+    }
+  }
+}

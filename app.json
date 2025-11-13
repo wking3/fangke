@@ -1,0 +1,46 @@
+{
+  "name": "Visitor Management System",
+  "description": "A web-based visitor management system with QR code registration and WeChat/DingTalk notifications",
+  "repository": "https://github.com/username/visitor-system",
+  "logo": "https://cdn.jsdelivr.net/npm/@heroicons/ui/solid/qr-code-solid.svg",
+  "keywords": ["flask", "visitor", "management", "wechat", "dingtalk", "notifications"],
+  "image": "python:3.12",
+  "env": {
+    "NOTIFICATION_SERVICE": {
+      "description": "Notification service to use: wechat, dingtalk, or webhook",
+      "value": "webhook",
+      "required": true
+    },
+    "HOST_NOTIFICATION_WEBHOOK": {
+      "description": "Webhook URL for host notifications (if using webhook service)",
+      "required": false
+    },
+    "SECURITY_NOTIFICATION_SERVICE": {
+      "description": "Security notification service: app, wechat, dingtalk, or webhook",
+      "value": "app",
+      "required": true
+    },
+    "SECURITY_APP_URL": {
+      "description": "URL for security app notifications",
+      "value": "https://your-app-url.up.railway.app",
+      "required": false
+    }
+  },
+  "environments": {
+    "test": {
+      "addons": ["postgresql:14"]
+    },
+    "review": {
+      "addons": ["postgresql:14"]
+    },
+    "production": {
+      "addons": ["postgresql:14"]
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  }
+}

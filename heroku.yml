@@ -1,0 +1,25 @@
+# Heroku deployment configuration
+
+# App name (change this to your unique app name)
+app_name=your-visitor-system-app
+
+# Environment variables that need to be set on Heroku
+config_vars:
+  - NOTIFICATION_SERVICE=webhook
+  - HOST_NOTIFICATION_WEBHOOK=https://your-notification-webhook.com
+  - SECURITY_NOTIFICATION_SERVICE=app
+  - SECURITY_APP_URL=https://your-security-app-url.com
+  - DATABASE_URL=postgresql://localhost/visitor_db
+
+# Buildpacks needed
+buildpacks:
+  - heroku/python
+
+# Requirements file
+requirements_file: requirements.txt
+
+# Procfile location
+procfile: Procfile
+
+# Runtime
+runtime_file: runtime.txt
